@@ -1,5 +1,7 @@
 package com.github.bohnman.squiggly.filter;
 
+import static org.junit.Assert.assertEquals;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -10,9 +12,6 @@ import com.github.bohnman.squiggly.model.*;
 import com.github.bohnman.squiggly.parser.SquigglyParser;
 import com.github.bohnman.squiggly.util.SquigglyUtils;
 import com.google.common.base.Charsets;
-import org.junit.Before;
-import org.junit.Test;
-
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -25,8 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.Before;
+import org.junit.Test;
 
 @SuppressWarnings("Duplicates")
 public class SquigglyPropertyFilterTest {
@@ -371,6 +370,8 @@ public class SquigglyPropertyFilterTest {
             Field modifiersField = Field.class.getDeclaredField("modifiers");
             modifiersField.setAccessible(true);
             modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+        } catch (NoSuchFieldException e) {
+          // Nothing to do
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

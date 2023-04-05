@@ -1,8 +1,7 @@
 package com.github.bohnman.squiggly.web;
 
+import jakarta.servlet.http.HttpServletRequest;
 import net.jcip.annotations.ThreadSafe;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * Provides a thread-local for holding a servlet request.

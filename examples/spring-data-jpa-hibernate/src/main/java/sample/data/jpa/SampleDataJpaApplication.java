@@ -25,6 +25,7 @@ import com.github.bohnman.squiggly.Squiggly;
 import com.github.bohnman.squiggly.web.RequestSquigglyContextProvider;
 import com.github.bohnman.squiggly.web.SquigglyRequestFilter;
 import com.google.common.collect.Iterables;
+import jakarta.servlet.http.HttpServletRequest;
 import org.hibernate.collection.spi.PersistentCollection;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,8 +34,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-
-import javax.servlet.http.HttpServletRequest;
 
 @SpringBootApplication
 public class SampleDataJpaApplication {

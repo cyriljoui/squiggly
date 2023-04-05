@@ -1,19 +1,16 @@
 package com.github.bohnman.squiggly.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.bohnman.squiggly.util.SquigglyUtils;
 import com.github.bohnman.squiggly.bean.BeanInfoIntrospector;
 import com.google.common.cache.CacheBuilderSpec;
 import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.Maps;
-import net.jcip.annotations.ThreadSafe;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Map;
 import java.util.Properties;
 import java.util.SortedMap;
+import net.jcip.annotations.ThreadSafe;
 
 /**
  * Provides access to various configuration values that the Squiggly library uses.
@@ -26,15 +23,15 @@ public class SquigglyConfig {
     private static final SortedMap<String, String> PROPS_MAP;
     private static final SortedMap<String, String> SOURCE_MAP;
 
-    private static final boolean filterImplicitlyIncludeBaseFields;
-    private static final boolean filterImplicitlyIncludeBaseFieldsInView;
-    private static final CacheBuilderSpec filterPathCacheSpec;
-    private static final boolean filterPropagateViewToNestedFilters;
+    private static boolean filterImplicitlyIncludeBaseFields;
+    private static boolean filterImplicitlyIncludeBaseFieldsInView;
+    private static CacheBuilderSpec filterPathCacheSpec;
+    private static boolean filterPropagateViewToNestedFilters;
 
-    private static final CacheBuilderSpec parserNodeCacheSpec;
+    private static CacheBuilderSpec parserNodeCacheSpec;
 
     private static boolean propertyAddNonAnnotatedFieldsToBaseView;
-    private static final CacheBuilderSpec propertyDescriptorCacheSpec;
+    private static CacheBuilderSpec propertyDescriptorCacheSpec;
 
     static {
         Map<String, String> propsMap = Maps.newHashMap();
